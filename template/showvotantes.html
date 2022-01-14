@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block titulo %}Votantes{% endblock  %}
+{% block content %}
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Lista Votantes</h1>
+    <a href="/VotanteCreate" class="btn btn-primary"><i class="fas fa-fw fa-user "></i> Nuevo Votante</a>
+
+  </div>
+
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Identificación</th>
+          <th scope="col">Numero Mesa</th>
+          <th scope="col"colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in object_list %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{ row.nombres }}</td>
+          <td>{{ row.apellidos }}</td>
+          <td>{{ row.identificacion }}</td>
+          <td>{{ row.num_mesa }}</td>
+
+          <td><a class="btn btn-primary" href="{%url 'VotanteUpdate' row.id %}" >Editar</a></td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <!-- Content Row -->
+
+
+  </div>
+
+{% endblock %}

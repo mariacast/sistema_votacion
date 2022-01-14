@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block titulo %}Usuarios{% endblock  %}
+{% block content %}
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Lista Departamentos</h1>
+    <a href="/DepartamentoCreate" class="btn btn-primary"><i class="fas fa-fw fa-user "></i> Nuevo Departamento</a>
+
+  </div>
+
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre Departamento</th>
+
+          <th scope="col"colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in object_list %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{ row.nombre }}</td>
+
+
+          <td><a class="btn btn-primary" href="{%url 'DepartamentoUpdate' row.id %}" >Editar</a></td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <!-- Content Row -->
+
+
+  </div>
+
+{% endblock %}

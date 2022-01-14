@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block titulo %}Crear Usuario{% endblock  %}
+{% block content %}
+        <div class="row justify-content-center">
+
+          <div class="col-xl-4 col-lg-12 col-md-6">
+        <div class="card o-hidden border-5 shadow-lg my-5">
+
+              <div class="col-lg-9">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Registrar</h1>
+                  </div>
+
+                  <form action="{% url 'login' %}" class="user"   method=post name="fregistro" id="fregistro">
+                      {% csrf_token %}
+                      <input id="user" class="text_user" type="text" name="usuario" maxlength="20" placeholder="Ingresa tu user" /> <br />
+                      <a id="men_user" style="display:none">Campo Usuario no puede ser vacio!</a>
+                      <input id ="pass" class="text_user" type="password" name="clave" maxlength="20" placeholder="ingresa tu password"/> <br /><br>
+                      <a id="men_pass"style="display:none">Campo Password no puede ser vacio!</a>
+                      <button type="submit" class="btn btn-primary btn-user btn-block">
+                        Guardar
+                      </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+{% endblock %}

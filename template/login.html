@@ -1,0 +1,18 @@
+
+      <div class="mensaje_sesion">
+        <a class="mensaje_login">{{ error }}</a>
+      </div>
+
+    <div class="formlogin">
+      <form action="{% url 'login' %}" id="form_login" method="post" >
+         {% csrf_token %}
+
+         <a class="login_tit">LOGIN</a><br><br>
+         <input id="user" class="text_user" type="text" name="usuario" maxlength="20" placeholder="Ingresa tu user" /> <br />
+         <a id="men_user" style="display:none">Campo Usuario no puede ser vacio!</a>
+         <input id ="pass" class="text_user" type="password" name="clave" maxlength="20" placeholder="ingresa tu password"/> <br /><br>
+         <a id="men_pass"style="display:none">Campo Password no puede ser vacio!</a>
+
+     </form>
+     <button  onclick="ValidarUser();"id="btnLogin" class="btn_login">Ingresar  <span class="icon-touch_app"> </span></button>
+    </div>
